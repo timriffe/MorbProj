@@ -64,7 +64,9 @@
 %\newcommand\tgh[1]{\raisebox{-.25\height}{\includegraphics[scale=.3]{Figures/triadtable/triad#1.pdf}}}
 
 \defcitealias{HMD}{HMD}
-
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\tc}{\quad\quad\text{,}}
+\newcommand{\tp}{\quad\quad\text{.}}
 % junk for longtable caption
 \AtBeginEnvironment{longtable}{\linespread{1}\selectfont}
 \setlength{\LTcapwidth}{\linewidth}
@@ -149,15 +151,39 @@ wish to make. For a binary condition, a straightforward calculation is a
 proportion of individuals with $G$. Say then that the number of people
 with condition $G$ at chronological age $a$, $G(a)$, is simple the people in age
 $a$ times the probability of having $G$ in that age, $g'(a)$:
-
 \begin{equation}
 \label{eq:Ga}
-G(a) = P(a) \cdot g'(a)
+G(a) = P(a)  g'(a) \tp
 \end{equation}
-
 \eqref{eq:Ga} holds tautologically in the given year of observation, but it may
 not hold in the future if the essential variation in $G$ in fact varies by
-remaining years of life, $y$, one's thanatological age.
+remaining years of life, $y$, one's thanatological age. In this case, $g'(a)$ is
+itself an aggregate that depends on the real underlying thantological function
+of $G$, $g(y)$, and the population structure classified by both chronolgical and
+thanatological age:
+\begin{align}
+\label{eq:gpa}
+g'(a) =& \frac{\int _0^\omega g(y)  P(y,a) \dd y}{P(a)} \\
+  =& \frac{\int _0^\omega g(y)  P(a) \mu(a+y)\frac{l(a+y)}{l(a)}\dd y}{P(a)}\\
+  =& \int _0^\omega g(y) \mu(a+y)\frac{l(a+y)}{l(a)}\dd y \\
+  =& \int _0^\omega g(y) f(y|a)\dd y \tc
+\end{align}
+where $\omega$ is the highest age a person can survive to,
+$\mu(a)$ is the force of mortality at age $a$, and $l(a)$ is the
+survivor function at age $a$. \eqref{eq:gpa} means that $g'(a)$ is not
+independent of mortality in the case that it is sufficiently described by
+$g(y)$. This conclusion is rather intuitive in any case, since for a condition
+to vary as a function of thanatological age means that it is bound up with
+variation in lifespan itself. In this case, \eqref{eq:Ga} is better rewritten
+as:
+\begin{equation}
+G(a) = P(a) \int _0^\omega g(y) f(y|a)\dd y \tp
+\end{equation}
+There may be a sort-of-empirically-regular pattern to $g'(a)$, but it is
+accidental. $g'(a)$ will move more from year to year than will $g(y)$, simply
+because mortality also changes. Likewise, the mix of ages in a
+particular year are subject to different mortality schedules, as they belong to
+different birth cohorts, each with its own history and future of mortality.
 
 
 \end{document}
