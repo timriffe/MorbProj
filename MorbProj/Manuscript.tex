@@ -90,6 +90,8 @@ and projections}
 This is important stuff!
 \end{abstract}
 
+
+\section*{Introduction}
 Age standardization is an essential tool for the contemporary practice of
 demography. Demographers age-standardize in order to assess trends and
 intensities in rates that vary in regular ways over age free from distortion in
@@ -113,10 +115,49 @@ share many characteristics in the time prior to death, especially persons that
 die of intrisic or unavoidable mortality. This empirical
 alignment will in some cases hold, even if the persons are not from proximate
 birth cohorts. That is to say, for some conditions, temporal variation in terms
-of remaining years of life, or completed lifespan provides sharper and more
+of remaining years of life or completed lifespan provides sharper and more
 regular relief than variation in terms of chronological age. In such instances,
 age standardization of the common variety does not provide the degree of
-control or precision that we may believe it does.
+control or precision that is often assumed -- it is misapplied. By extension,
+chronological age patterns of characteristics that do not vary primarily as a
+function of chronological age are misleading and accidental. 
+
+In this paper, we provide an empirical example of a health condition that
+appears to have a chronological age pattern in the margin, but has none when
+disagregated. We show how even short term projections of the
+condition into the future imply great differences in prevalence--- changes not only of different magnitude but
+of different sign--- with respect to a projection based only on an
+apparent marginal age pattern. The empirical excercise is relatively modest,
+given the available data, but we do demonstrate a vulnerability in the
+methodological status quo that has consequences for how we measure health at the
+population level. We hope that this basic observation will motivate the
+development of new extensions of standardization methods, as the standardization
+we propose is more amenable to ``clean'' count data that are not readily
+available in most instances.
+
+\section*{Motivation}
+Some words from John
+
+\section*{Formal relationships}
+Say we want to measure a health condition, $G$, something bad and degenerative
+that usually sets in late in life, but with onset spread out over a wide range
+of ages. For simplicity, imagine that $G$ is a binary condition: either you have
+it or you don't. The same excercise could be carried out with adjustments for
+intensity, but this complicates the measurement of ``how much'' condition $G$
+there is, and the implied methodlogical details might obfuscate the point we
+wish to make. For a binary condition, a straightforward calculation is a
+proportion of individuals with $G$. Say then that the number of people
+with condition $G$ at chronological age $a$, $G(a)$, is simple the people in age
+$a$ times the probability of having $G$ in that age, $g'(a)$:
+
+\begin{equation}
+\label{eq:Ga}
+G(a) = P(a) \cdot g'(a)
+\end{equation}
+
+\eqref{eq:Ga} holds tautologically in the given year of observation, but it may
+not hold in the future if the essential variation in $G$ in fact varies by
+remaining years of life, $y$, one's thanatological age.
 
 
 \end{document}
