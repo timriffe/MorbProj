@@ -1,1 +1,115 @@
 % manuscript, to be drafted
+
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+%\documentclass[12pt,oneside,a4paper,doublespacing]{article} % for submission
+\documentclass[11pt,oneside,a4paper]{article} % for sharing
+
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage{subcaption}
+%\usepackage{subfig}
+\usepackage{longtable}
+\usepackage{setspace}
+%\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor,colortbl}
+\usepackage{chngpage}
+%\usepackage[active,tightpage]{preview}
+\usepackage{natbib}
+\bibpunct{(}{)}{,}{a}{}{;} 
+\usepackage{url}
+\usepackage{nth}
+\usepackage{authblk}
+\usepackage[most]{tcolorbox}
+%\usepackage{hyperref}
+%\usepackage{color}
+%\usepackage{fontspec}
+%\usepackage{pdfsync}
+\usepackage[normalem]{ulem}
+\usepackage{amsfonts}
+\renewcommand{\listtablename}{List of Appendix Tables}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% working on this need to concatenate file name based on sex and variable name
+%\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% setting color to letters affects spacing. Here's a hack I found here:
+% http://tex.stackexchange.com/questions/212736/change-letter-colour-without-losing-letter-spacing
+%\DeclareRobustCommand{\spacedallcaps}[1]{\MakeUppercase{\textsc{#1}}} % all
+% caps with better spacing
+
+%\colorlet{RED}{red}
+%\colorlet{BLUE}{b}
+\colorlet{rd}{red}
+\colorlet{bl}{blue}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand\ackn[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\newcommand\vt[1]{\textcolor{rd}{#1}}
+\newcommand\eg[1]{\textcolor{bl}{#1}}
+
+\newcommand\tg[1]{\includegraphics[scale=.5]{Figures/triadtable/triad#1.pdf}}
+\newcommand\tgh[1]{\raisebox{-.25\height}{\includegraphics[scale=.3]{Figures/triadtable/triad#1.pdf}}}
+
+\defcitealias{HMD}{HMD}
+
+% junk for longtable caption
+\AtBeginEnvironment{longtable}{\linespread{1}\selectfont}
+\setlength{\LTcapwidth}{\linewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{Accounting for temporal variation in morbidity projections}
+
+\author[1]{Tim Riffe\thanks{riffe@demogr.mpg.de}}
+\author[2]{Pil H. Chung}
+\author[3]{John MacInnes}
+\affil[1]{Max Planck Institute for Demographic Research}
+\affil[2]{Department of Demography, University of California, Berkeley}
+\affil[3]{School of Social and Political Science, University of Edinburgh}
+
+%\author{[Authors]}
+
+\maketitle
+
+\begin{abstract}
+This is important stuff!
+\end{abstract}
+
+Age standardization is an essential tool for the contemporary practice of
+demography. Demographers age-standardize in order to assess trends and
+intensities in rates that vary in regular ways over age free from distortion in
+population structure. Without age standardization or its many cognates, we
+would judge trends and magnitudes based on crude rates, which are now understood
+not to carry the same predictive utility as rates that have been purged of
+structure. This is a cornerstone tenet of contemporary demography. Typically, in
+order to drive the point home, instructors find or concoct an example where a
+comparison of age-standardized rates leads to the opposite conclusion as crude
+rates suggest. This is quite motivating for the pupil, and it soon become second
+nature. This is the point we wish to remake with respect to unaccounted-for
+temporal variation in rates that are not vital rates.
+
+Some processes vary over the life course, that is to say, within and over the
+lives of individuals. If members of the same birth cohort are thought to have
+something in common, it will surely be the case that members of the same birth
+cohort that also end up dying in the same year share even more features in their
+life course: Different aspects of their lives will on average align in
+empirically regular ways. Likewise, persons dying in the same year probably
+share many characteristics, especially if they die of some variety of intrisic
+or unavoidable mortality.
+
+
+\end{document}
