@@ -32,9 +32,9 @@
 %\usepackage{pdfsync}
 \usepackage[normalem]{ulem}
 \usepackage{amsfonts}
-\renewcommand{\listtablename}{List of Appendix Tables}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\renewcommand{\listtablename}{List of Appendix Tables}
+%\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 % working on this need to concatenate file name based on sex and variable name
 %\newcommand\Cell[1]{{\raisebox{-0.05in}{\includegraphics[height=.2in,width=.2in]{Figures/ColorCodes/\expandafter#1}}}}  
 
@@ -46,8 +46,8 @@
 
 %\colorlet{RED}{red}
 %\colorlet{BLUE}{b}
-\colorlet{rd}{red}
-\colorlet{bl}{blue}
+%\colorlet{rd}{red}
+%\colorlet{bl}{blue}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -57,11 +57,11 @@
   \addtocounter{footnote}{-1}%
   \endgroup
 }
-\newcommand\vt[1]{\textcolor{rd}{#1}}
-\newcommand\eg[1]{\textcolor{bl}{#1}}
+%\newcommand\vt[1]{\textcolor{rd}{#1}}
+%\newcommand\eg[1]{\textcolor{bl}{#1}}
 
-\newcommand\tg[1]{\includegraphics[scale=.5]{Figures/triadtable/triad#1.pdf}}
-\newcommand\tgh[1]{\raisebox{-.25\height}{\includegraphics[scale=.3]{Figures/triadtable/triad#1.pdf}}}
+%\newcommand\tg[1]{\includegraphics[scale=.5]{Figures/triadtable/triad#1.pdf}}
+%\newcommand\tgh[1]{\raisebox{-.25\height}{\includegraphics[scale=.3]{Figures/triadtable/triad#1.pdf}}}
 
 \defcitealias{HMD}{HMD}
 
@@ -72,7 +72,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\title{Accounting for temporal variation in morbidity projections}
+\title{Accounting for temporal variation in morbidity measurement
+and projections}
 
 \author[1]{Tim Riffe\thanks{riffe@demogr.mpg.de}}
 \author[2]{Pil H. Chung}
@@ -107,9 +108,15 @@ lives of individuals. If members of the same birth cohort are thought to have
 something in common, it will surely be the case that members of the same birth
 cohort that also end up dying in the same year share even more features in their
 life course: Different aspects of their lives will on average align in
-empirically regular ways. Likewise, persons dying in the same year probably
-share many characteristics, especially if they die of some variety of intrisic
-or unavoidable mortality.
+empirically regular ways. In general, persons dying in the same year probably
+share many characteristics in the time prior to death, especially persons that
+die of intrisic or unavoidable mortality. This empirical
+alignment will in some cases hold, even if the persons are not from proximate
+birth cohorts. That is to say, for some conditions, temporal variation in terms
+of remaining years of life, or completed lifespan provides sharper and more
+regular relief than variation in terms of chronological age. In such instances,
+age standardization of the common variety does not provide the degree of
+control or precision that we may believe it does.
 
 
 \end{document}
