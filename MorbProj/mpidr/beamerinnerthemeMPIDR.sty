@@ -1,0 +1,161 @@
+%% 
+%% This is file 'beamerinnerthemeMPIDR.sty'
+%% 
+%% by Eric Naujoks
+%%
+%% Problems, bugs and comments to 
+%% naujoks@demogr.mpg.de
+%%
+
+
+\ProvidesPackage{./mpidr/beamerinnerthemeMPIDR}
+
+% counter for headers; not used at the moment
+\newcount\he@dmode \he@dmode0
+\DeclareOptionBeamer{headlogo}{\def\he@dmode{0}}
+\DeclareOptionBeamer{headtitle}{\def\he@dmode{1}}
+\DeclareOptionBeamer{headframetitle}{\def\he@dmode{2}}
+\DeclareOptionBeamer{headframesubtitle}{\def\he@dmode{3}}
+
+\ProcessOptionsBeamer\relax
+
+\mode<presentation>
+
+
+% rounded blocks with shadow
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+
+% hidden navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+% parskip = 0 in the TOC
+\let\oldt@bleofcontents\tableofcontents
+\let\oldp@rskip\parskip
+\renewcommand\tableofcontents[1][]{\vskip 1em\parskip\z@ \oldt@bleofcontents[#1] \parskip\oldp@rskip}
+
+
+
+%%%%%%%%
+\AtBeginDocument{
+  %\vspace*{-24.27635\mm}\hspace*{-28.282\mm}
+	\vspace*{0.09in}\hspace*{-0.575in}
+	\includegraphics[width=10in]{\@titleimage}
+}
+
+
+
+%%%%%%%%
+\AtEndDocument
+{
+    \vspace*{-0in}
+    \hspace*{-.54in}
+    \rule{-1mm}{0mm}
+    \begin{tikzpicture}[baseline=-40mm]
+       \draw[line width=1pt, color=colorfirst, fill=colorfirst] (0in, 1in) rectangle (10in,-3.8in);
+%\rule{}{}
+       %\draw[rounded corners=0mm, line width=4.55pt, color=colorscheme, fill=colorscheme] (0mm,40mm) rectangle (0mm, 40mm );
+       %\draw[rounded corners=00.0mm, line width=4.55pt, color=black, fill=colorscheme](0mm, -\f@@tboxtop) rectangle (\textwidth, -\f@@tboxbottom );
+
+        \draw (10,-0.595in) node[]
+           {
+\hspace*{-1.1in}
+	\begin{minipage}[t]{0.8\textwidth}
+		\begin{flushright}
+		\usebeamerfont{title}Comments or Questions?\par\medskip
+		\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\href{www.demogr.mpg.de}{www.demogr.mpg.de}
+		\end{flushright}
+%        \begin{beamercolorbox}[sep=0.2ex,right,rounded=true,wd=\textwidth]{title}
+%		\usebeamerfont{title}Comments or Questions?\par%
+%		\ifx\insertsubtitle\@empty%
+%		\else%
+%            \vskip0.25em%
+%            {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\href{www.demogr.mdg.de}{www.demogr.mdg.de}}%
+%          \fi%
+%     \end{beamercolorbox}%
+      \end{minipage}
+           };
+    \end{tikzpicture}
+}
+
+
+
+% title page
+\defbeamertemplate*{title page}{unirostock}[1][]
+{
+    \vspace*{0.19in}
+    \hspace*{-.54in}
+    \rule{-1mm}{0mm}%Hallo
+    \begin{tikzpicture}[baseline=0mm]
+       \draw[line width=1pt, color=colorfirst, fill=colorfirst] (0in, 0in) rectangle (10in,-4.7in);
+%\rule{}{}
+       \vspace*{0mm}\hspace*{0in};
+       %\draw[rounded corners=0mm, line width=4.55pt, color=colorscheme, fill=colorscheme] (0mm,40mm) rectangle (0mm, 40mm );
+       %\draw[rounded corners=00.0mm, line width=4.55pt, color=black, fill=colorscheme](0mm, -\f@@tboxtop) rectangle (\textwidth, -\f@@tboxbottom );
+
+        \draw (10,-1.56in) node[]
+           {
+\hspace*{-1.1in}
+     \begin{minipage}[t]{0.9\textwidth}
+        \begin{beamercolorbox}[sep=0.2ex,right,rounded=true,wd=\textwidth]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+            \vskip0.25em%
+            {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+          \fi%
+     \end{beamercolorbox}%
+      \end{minipage}
+           };
+    \end{tikzpicture}
+}
+
+
+
+
+% frame title
+\defbeamertemplate*{frametitle}{unirostock}
+{
+	\thispagestyle{empty}
+	
+	\vskip-1.8in%
+	\hspace*{-0.49in}
+	\begin{tabular}{p{3in}@{\hspace*{0.4in}}p{7in}}
+		\begin{minipage}[c][][t]{0.6in}
+			\includegraphics[width=3in]{logocustom}
+			%mpidr_logo_colour_en_solo}
+		\end{minipage}
+			&
+			\usebeamerfont{frametitle}\insertframetitle
+	\end{tabular}
+	
+	\vspace*{0.07in}
+	\hspace*{-.55in}
+	\rule{-1mm}{0mm}%Hallo
+	\begin{tikzpicture}[baseline=0mm]
+		\draw[line width=1pt, color=colorframe, fill=colorframe] (-0in, 0in) rectangle (10in,-6.5in);
+		%\rule{}{}
+		\vspace*{0mm}\hspace*{0in};
+	\end{tikzpicture}
+	\vspace*{-6.75in}
+}
+
+
+
+% listings etc
+% Itemize items
+\defbeamertemplate*{itemize item}{unirostock}{\hbox{\Large\textbullet}}
+\defbeamertemplate*{itemize subitem}{unirostock}{\hbox{\textbullet}}
+\defbeamertemplate*{itemize subsubitem}{unirostock}{\small\raise0.5pt\hbox{--}}
+% % Enumerate items
+% \defbeamertemplateparent{enumerate items}{enumerate item,enumerate subitem,enumerate subsubitem,enumerate mini}{}
+% \defbeamertemplate*{enumerate item}{default}{\insertenumlabel.}
+% \defbeamertemplate*{enumerate subitem}{default}{\insertenumlabel.\insertsubenumlabel}
+% \defbeamertemplate*{enumerate subsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+% \defbeamertemplate*{enumerate mini template}{default}{\insertenumlabel}
+
+
+
+\mode
+<all>

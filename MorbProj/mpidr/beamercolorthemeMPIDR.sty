@@ -1,0 +1,84 @@
+%% 
+%% This is file 'beamercolorthemeMPDIR.sty'
+%% 
+%% by Eric Naujoks
+%%
+%% Problems, bugs and comments to 
+%% naujoks@demogr.mpg.de
+%%
+
+
+\ProvidesPackage{./mpidr/beamercolorthemeMPIDR}
+
+%%%%%%%% color options %%%%%%%%
+
+
+\DeclareOptionBeamer{uni}{\definecolor{colorscheme}{cmyk}{1.00, 0.75, 0.00, 0.00}%
+                          \definecolor{colorschemeinv}{rgb}{1.00, 1.00, 1.00}%
+                          \def\@titleimage{./mpidr/title-uni}}
+\DeclareOptionBeamer{mpidr}{\definecolor{colorscheme}{RGB}{0, 68, 102}%
+				\definecolor{colorfirst}{RGB}{221,222,214}%
+				%\definecolor{colorframe}{RGB}{238,238,234}%
+				\definecolor{colorframe}{RGB}{255,255,255}%
+				\definecolor{colorheading}{RGB}{0, 68, 102}%
+        \definecolor{colorschemeinv}{rgb}{1.00, 1.00, 1.00}%
+        \def\@titleimage{./mpidr/backgroundfirst}}
+
+
+\ExecuteOptionsBeamer{uni}
+\ProcessOptionsBeamer\relax
+
+
+\mode<presentation>
+
+
+% colors
+\setbeamercolor*{palette primary}{fg=colorscheme}
+\setbeamercolor*{palette primary inverted}{bg=colorscheme, fg=colorschemeinv}
+\setbeamercolor*{palette secondary}{fg=colorscheme!60!white, bg=colorschemeinv}
+\setbeamercolor*{palette secondary inverted}{bg=colorscheme!60!white, fg=colorscheme}
+\setbeamercolor*{palette tertiary}{fg=colorscheme!20!white, bg=colorschemeinv}
+\setbeamercolor*{palette tertiary inverted}{bg=colorscheme!20!white, fg=colorschemeinv}
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\setbeamercolor*{author in head/foot}{parent=palette primary inverted}
+\setbeamercolor*{frametitle}{fg=colorheading}
+\setbeamercolor*{structure}{parent=palette primary}
+\setbeamercolor*{section in toc}{parent=structure}
+\setbeamercolor*{section in toc shaded}{parent=section in toc}
+\setbeamercolor*{subsection in toc}{}
+\setbeamercolor*{subsection in toc shaded}{parent=subsection in toc}
+\setbeamercolor*{title}{fg=black}
+\setbeamercolor*{author}{parent=title}
+\setbeamercolor*{institute}{parent=title}
+\setbeamercolor*{titlegraphic}{parent=title}
+\setbeamercolor*{headtitle}{parent=palette primary}
+\setbeamercolor*{alerted text}{parent=palette primary}
+
+% block colors
+\setbeamercolor{block title}{parent=palette primary inverted}
+\setbeamercolor{block title alerted}{parent=palette primary inverted}
+\setbeamercolor{block title example}{parent=normal text, bg=palette secondary.fg}
+
+\setbeamercolor{block body}{parent=normal text}
+\setbeamercolor{block body alerted}{parent=palette tertiary inverted, fg=normal text.fg}
+\setbeamercolor{block body example}{parent=normal text}
+
+
+% table colors
+\usebeamercolor{palette primary}
+\usebeamercolor{palette secondary}
+\usebeamercolor{palette tertiary}
+\usebeamercolor{palette quaternary}
+\def\zfA{\rowcolor{palette primary.fg}}
+\def\zfB{\rowcolor{palette secondary.fg}}
+\def\zfC{\rowcolor{palette tertiary.fg}}
+\def\zfD{\rowcolor{palette quaternary.fg}}
+
+% color for covered lists
+\setbeamercovered{transparent}
+
+
+
+\mode
+<all>

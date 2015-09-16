@@ -1,0 +1,60 @@
+%% 
+%% This is file 'beamerthemeMPIDR.sty'
+%% 
+%% by Eric Naujoks
+%%
+%% Problems, bugs and comments to 
+%% naujoks@demogr.mpg.de
+%%
+
+
+\ProvidesPackage{./mpidr/beamerthemeMPIDR}
+
+
+% converting mm to \mm and pt to \pt (different measure sizes in beamer-class)
+\newlength\mm \mm0.503937007mm
+\newlength\pt \pt0.503937007pt
+
+% external packages
+\RequirePackage{colortbl}
+\RequirePackage{parskip}
+\RequirePackage{calc}
+
+\mode<presentation>
+
+
+%%%%%%%% forwarding schemes %%%%%%%%
+\DeclareOptionBeamer{uni}{\def\c@loroption{uni}}
+\DeclareOptionBeamer{mpidr}{\def\c@loroption{mpidr}}
+\DeclareOptionBeamer{footuni}{\def\f@@t{footuni}}
+\DeclareOptionBeamer{foottitle}{\def\f@@t{foottitle}}
+\DeclareOptionBeamer{footheadings}{\def\f@@t{footheadings}}
+\DeclareOptionBeamer{footuniheadings}{\def\f@@t{footuniheadings}}
+\DeclareOptionBeamer{headlogo}{\def\he@d{headlogo}}
+\DeclareOptionBeamer{headtitle}{\def\he@d{headtitle}}
+\DeclareOptionBeamer{headframetitle}{\def\he@d{headframetitle}}
+\DeclareOptionBeamer{headframesubtitle}{\def\he@d{headframesubtitle}}
+\ExecuteOptionsBeamer{uni, footuni, headlogo}
+\ProcessOptionsBeamer\relax
+
+
+% packages for the corporate design
+\RequirePackage{./mpidr/beamerfontthemeMPIDR}
+\RequirePackage[\f@@t, \he@d]{./mpidr/beamerouterthemeMPIDR}
+\RequirePackage[\he@d]{./mpidr/beamerinnerthemeMPIDR}
+\RequirePackage[\c@loroption]{./mpidr/beamercolorthemeMPIDR}
+
+
+% templates
+\setbeamertemplate{headline}[unirostock]
+\setbeamertemplate{footline}[unirostock]
+\setbeamertemplate{title page}[unirostock]
+\setbeamertemplate{frametitle}[unirostock]
+\setbeamertemplate{background}[unirostock]
+\setbeamertemplate{itemize item}[unirostock]
+\setbeamertemplate{itemize subitem}[unirostock]
+\setbeamertemplate{itemize subsubitem}[unirostock]
+
+
+\mode
+<all>
