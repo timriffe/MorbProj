@@ -23,6 +23,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{animate} 
+\usepackage{amsmath}
 \usepackage[normalem]{ulem}
 \geometry{paperwidth=10in, paperheight=7.5in}
 \usepackage{hyperref}
@@ -37,7 +38,9 @@
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-
+\newcommand{\dd}{\; \mathrm{d}}
+\newcommand{\tc}{\quad\quad\text{,}}
+\newcommand{\tp}{\quad\quad\text{.}}
 
 %% Declaring title and author
 \title{Morbidity and Mortality}
@@ -146,14 +149,171 @@ at the same time? Morbidity measurement needs to follow that\ldots}
 \end{frame}
 
 \begin{frame}
-\frametitle{OADR and REDR 1958-2009 various countries}
+
 \begin{figure}[b]
+\frametitle{~}
     \centering
+    \caption{OADR vs REDR 1958-2009 various countries}
       % figure made in R/APClab.R
     \includegraphics[scale=.9]{Figures/Johnsfig.png}
     %\caption{Lifelines in the APC diagram}
 \end{figure} 
 \end{frame}
+
+\begin{frame}
+\frametitle{Bigger problem}
+\vspace{1em}
+\begin{block}{~}
+Chrono age standardisation typically leads to (very) pessimistic future
+scenarios for volume of morbidity and assoc health/social care demand and
+quality of life e.g., US CBO 250\% increase in GDP share going to elderly
+support by 2050.
+\end{block}
+\vspace{-2em}
+\begin{figure}[b]
+    \centering
+      % figure made in R/APClab.R
+    \includegraphics[scale=.9]{Figures/Johnsfig2.png}
+    %\caption{Lifelines in the APC diagram}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{An alternative approach I}
+\begin{block}{Understand temporal variation}
+When broken down by both chronological and thanatological age, morbidity
+conditions typically vary either as a function of thanatological age or as a
+function of both age perspectives. Very few conditions are functions of
+chronological age exclusively in elderly ages.
+\end{block}
+
+\end{frame}
+\begin{frame}
+\frametitle{An alternative approach II}
+\begin{block}{Develop methods to deal with temporal variation}
+Morbidity measurement is currently distorted by mortality. These
+processes must be decoupled (for many conditions) in order to measure and
+predict trends in morbidity and make sound predictions.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{A demonstration}
+\begin{block}{Definitions}
+\begin{description}
+\item{$y$} is thanatological age 
+\item{$a$} is chronological age 
+\item{$J$} is a health condition that varies by $y$~~~\footnotemark
+\item{$j(y)$} is the time-to-death function of $J$
+\item{$j'(a)$} is the apparent chrono-age pattern of $J$
+\item{$N(a)$} is population by age
+\item{$\ell(a)$} is the survival function
+\item{$\mu(a)$} is the force of mortality
+\end{description}
+\end{block}
+\footnotetext{Imagine something that comes along with dying, even preceding it
+by a decade, but doesn't kill you per say (This is includes many survey health questions\ldots)}
+\end{frame}
+
+\begin{frame}
+\frametitle{A demonstration}
+\begin{block}{Reasonable assumption?}
+Is it reasonable to imagine $J$ as a function of only $y$? No, actually it's
+more complicated than that, but for some conditions it appears to be pretty darn
+close.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{A demonstration}
+\begin{figure}[b]
+    \centering
+    \caption{ADL, 5 point index, HRS, USA Males, 1915 birth cohort\footnote{stuff life: eating, bathing, dressing, walking, getting
+    up.}}
+    \vspace{-3em}
+      % figure made in R/APClab.R
+    \includegraphics[scale=1.2]{Figures/SurfExample.pdf}
+    %\caption{Lifelines in the APC diagram}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{A demonstration}
+\begin{figure}[b]
+    \centering
+    \caption{ADL, 5 point index, HRS, USA Males, 1915 birth
+    cohort}
+    \vspace{-3em}
+      % figure made in R/APClab.R
+    \includegraphics[scale=1.2]{Figures/LinesExample.pdf}
+    %\caption{Lifelines in the APC diagram}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\begin{block}{Reasonable assumption?}
+Yes, it's not bad to assume something like $j(y)$ might exist, so we're free to
+explore this assumption further. 
+\end{block}
+
+\begin{block}{red or blue line?}
+It doesn't matter, we'd learn the same thing. Will use red here.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{For items like $j(y)$}
+
+\begin{block}{$j(y)$ gives an age pattern}
+Characteristics like $j(y)$ still have age patterns. They are tricky, shifty,
+aggregates. The translation to chronological age depends on mortality.
+\end{block}
+\begin{align}
+j'(a) &= \frac{\int _0^\omega j(y) N(a,y) \dd y}{N(a)} \\
+      &= \frac{\int _0^\omega j(y) N(a) \mu(a+y)\frac{\ell(a+y)}{\ell(a)}\dd y}{N(a)}\\
+      &= \int _0^\omega j(y) f(y|a)\dd y
+\end{align}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{What does $j'(a)$ look like?}
+\begin{figure}[b]
+    \centering
+    \caption{Period $j'(a)$, assuming the red $j(y)$. Familiar-looking
+    curves?\footnotemark}
+    \vspace{-3em}
+      % figure made in R/APClab.R
+    \includegraphics[scale=1.2]{Figures/jprimeaExample.pdf}
+    %\caption{Lifelines in the APC diagram}
+\end{figure} 
+\footnotetext{Remember, we forced the same $j(y)$ on the whole series\ldots}
+\end{frame}
+
+\begin{frame}
+\frametitle{What does $j'(a)$ predict?}
+It's not so good at predicting\ldots
+\begin{figure}[b]
+    \centering
+    \caption{2010 $J(a)$ predicted from 1970 $j'(a)$}
+    \vspace{-3em}
+      % figure made in R/APClab.R
+    \includegraphics[scale=1.2]{Figures/jprimeaBadExample.pdf}
+    %\caption{Lifelines in the APC diagram}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{An alternative}
+\begin{block}{Measure more thoroughly}
+Estimate $j(a,y)$ (surfaces), and predict the future with $j(a,y)$ together with
+a mortality forecast. Needed: panel data with mortality followup, or registers
+with good repeated health measures.
+\end{block}
+
+\end{frame}
+
+
 \end{document}
 
 
