@@ -64,16 +64,6 @@
 	\titlepage
 \end{frame}
 
-
-% typical APC setup
-\begin{frame}
-\frametitle{A test title}
-\begin{figure}[b]
-    \centering
-       % figure made in R/TetraCombos.R
-    %\includegraphics{Figures/Tetra1prg.pdf}
-\end{figure} 
-\end{frame}
 %%	====
 \begin{frame}%{Table of Contents}
 \frametitle{The problem}
@@ -91,32 +81,33 @@
 
 \begin{frame}
 \frametitle{Some morbidity scenarios}
-* assume mortality declines gradually, or similar.
+* assume mortality declines gradually, or similar.\\
+* $Morb(a)$ is the chronological age pattern of morbidity
 \begin{block}{Expansion}
 \begin{description}
-\item[1)] ASMR\footnotemark $\uparrow$ (or
+\item[1)] $Morb(a)$ $\uparrow$ (or
 const) = morbidity vol. $\uparrow$
-\item[2)] ASMR $\downarrow$ but insufficient to offset mortality
+\item[2)] $Morb(a)$ $\downarrow$ but insufficient to offset mortality
                   decline = morbidity vol. $\uparrow$
 \end{description}
 \end{block}
 
 \begin{block}{Compression}
 \begin{description}
-\item[3)]ASMR $\downarrow$ fully offsets increased surv = constant morbidity
+\item[3)]$Morb(a)$ $\downarrow$ fully offsets increased surv = constant morbidity
 vol.
-\item[4)] Fall in ASMRs outstrips mortality decline = morbidity vol. $\downarrow$
+\item[4)] Fall in $Morb(a)$ outstrips mortality decline = morbidity vol. $\downarrow$
 \end{description}
 \end{block}
-\footnotetext{ASMR is age-specific morbidity here}
+
 \end{frame}	
 
 %%	section 1:
 \begin{frame}%{Table of Contents}
 \frametitle{Literature}
 
-\begin{block}{poor predictor}
-Current ASMR may be poor predictor of future ASMR
+\begin{block}{Poor predictor}
+Current $Morb(a)$ may be poor predictor of future $Morb(a)$
 \end{block}
 
 \begin{block}{Behaviours}
@@ -128,7 +119,7 @@ Tech innovation can change healthcare demand for given morbidity
 \end{block}
 
 \begin{block}{Pessimism}
-General Pessimism, esp. using secenario 1 (ASMR $\uparrow$, Surv $\uparrow$)
+General Pessimism, esp. using secenario 1 ($Morb(a)$ $\uparrow$, Surv $\uparrow$)
 \end{block}
 \end{frame}	%\end{frame}
 %
@@ -140,12 +131,11 @@ degrade data rather than purge it of structure. Serious consequences.
 \end{block}
 \begin{block}{Assumptions}
 \textbf{Chronological} age standardization makes morbidity follow OADR
-\textbf{Thanatological} age standardization makes morbidity follow REDR, or
-similar.\footnotemark
+\textbf{Thanatological} age standardization makes morbidity follow
+the stock of population close to death.\footnotemark
 \end{block}
 %
-\footnotetext{Remember that finding about populations growing younger and older
-at the same time? Morbidity measurement needs to follow that\ldots}
+\footnotetext{Remember Sanderson\& Scherbov (2005) ?}
 \end{frame}
 
 \begin{frame}
@@ -295,12 +285,14 @@ j'(a) &= \frac{\int _0^\omega j(y) N(a,y) \dd y}{N(a)} \\
 It's not so good at predicting\ldots
 \begin{figure}[b]
     \centering
-    \caption{2010 $J(a)$ predicted from 1970 $j'(a)$}
+    \caption{2010 $J(a)$ predicted from 1970 $j'(a)$~~~~\footnotemark}
     \vspace{-3em}
       % figure made in R/APClab.R
     \includegraphics[scale=1.2]{Figures/jprimeaBadExample.pdf}
     %\caption{Lifelines in the APC diagram}
 \end{figure} 
+\footnotetext{This is a 30\% difference! The difference would have been bigger
+given more mortality improvement.}
 \end{frame}
 
 \begin{frame}
@@ -310,7 +302,6 @@ Estimate $j(a,y)$ (surfaces), and predict the future with $j(a,y)$ together with
 a mortality forecast. Needed: panel data with mortality followup, or registers
 with good repeated health measures.
 \end{block}
-
 \end{frame}
 
 
