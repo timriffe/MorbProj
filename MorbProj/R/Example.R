@@ -1,5 +1,5 @@
-Dat <- local(get(load("/home/tim/git/ATL_SexDecomp/ATL_SexDecomp/Data/ResultsIADL_ADL.Rdata")))
-source("/home/tim/git/ATL_SexDecomp/ATL_SexDecomp/R/SurfMap.R")
+Dat <- local(get(load("/home/tim/git/HLETTD/Data/ResultsIADL_ADL.Rdata")))
+source("/home/tim/git/HLETTD/R/SurfMap.R")
 
 
 pdf("/home/tim/git/MorbProj/MorbProj/Figures/SurfExample.pdf",width=8,height=4.8)
